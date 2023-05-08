@@ -485,7 +485,7 @@ extension  StripePlugin {
             return
         }
         
-        let errors = params["errors"] as? [NSDictionary];
+        let errors = params["errors"] as? [NSDictionary]
         
         updatePlatformPaySheet(summaryItems: summaryItems, shippingMethods: shippingMethods, errors: errors ?? [], resolver: resolver(for: result), rejecter: rejecter(for: result))
     }

@@ -27,15 +27,18 @@ dependencies:
 #  stripe_platform_interface: ^9.1.0
   stripe_android:
     git:
-      url: https://github.com/Kuodster/flutter_stripe.git/packages/stripe_android
+      url: https://github.com/Kuodster/flutter_stripe.git
+      path: packages/stripe_android
       ref: main
   stripe_ios:
     git:
-      url: https://github.com/Kuodster/flutter_stripe.git/packages/stripe_ios
+      url: https://github.com/Kuodster/flutter_stripe.git
+      path: packages/stripe_ios
       ref: main
   stripe_platform_interface:
     git:
-      url: https://github.com/Kuodster/flutter_stripe.git/packages/stripe_platform_interface
+      url: https://github.com/Kuodster/flutter_stripe.git
+      path: packages/stripe_platform_interface
       ref: main
 dev_dependencies:
   flutter_test:

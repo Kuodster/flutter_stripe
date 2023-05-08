@@ -598,7 +598,42 @@ class Mappers {
         return STPCardBrand.unknown
     }
 
-    class func mapFromPaymentMethod(_ paymentMethod: STPPaymentMethod?) -> NSDictionary? {
+    class func mapFromOriginalPayment(_ payment: PKPayment) -> NSDictionary {
+        let shippingContactName: NSDictionary = [
+            "givenName": payment.shippingContact?.name?.givenName ?? NSNull(),
+            "familyName": payment.shippingContact?.name?.familyName ?? NSNull(),
+            "middleName": payment.shippingContact?.name?.middleName ?? NSNull(),
+            "namePrefix": payment.shippingContact?.name?.namePrefix ?? NSNull(),
+            "nameSuffix": payment.shippingContact?.name?.nameSuffix ?? NSNull(),
+            "nickname": payment.shippingContact?.name?.nickname ?? NSNull(),
+        ]
+        
+        let postalAddress: NSDictionary = [
+            "street": payment.shippingContact?.postalAddress?.street ?? NSNull(),
+            "subLocality": payment.shippingContact?.postalAddress?.subLocality ?? NSNull(),
+            "city": payment.shippingContact?.postalAddress?.city ?? NSNull(),
+            "subAdministrativeArea": payment.shippingContact?.postalAddress?.subAdministrativeArea ?? NSNull(),
+            "state": payment.shippingContact?.postalAddress?.state ?? NSNull(),
+            "postalCode": payment.shippingContact?.postalAddress?.postalCode ?? NSNull(),
+            "country": payment.shippingContact?.postalAddress?.country ?? NSNull(),
+            "isoCountryCode": payment.shippingContact?.postalAddress?.isoCountryCode ?? NSNull(),
+        ]
+        
+        let shippingContact: NSDictionary = [
+            "name": shippingContactName,
+            "email": payment.shippingContact?.emailAddress ?? NSNull(),
+            "phoneNumber": payment.shippingContact?.phoneNumber?.stringValue ?? NSNull(),
+            "postalAddress": postalAddress,
+        ]
+        
+        let paymentObject: NSDictionary = [
+            "shippingContact": shippingContact,
+        ]
+        
+        return paymentObject
+    }
+
+    class func mapFromPaymentMethod(_ paymentMethod: STPPaymentMethod?, payment: PKPayment? = nil) -> NSDictionary? {
         guard let paymentMethod = paymentMethod else {
             return nil
         }
@@ -667,7 +702,8 @@ class Mappers {
             "Upi": [
                 "vpa": paymentMethod.upi?.vpa
             ],
-            "USBankAccount": USBankAccount
+            "USBankAccount": USBankAccount,
+            "platformPayment": payment != nil ? Mappers.mapFromOriginalPayment(payment!) : [:] as NSDictionary
         ]
         return method
     }

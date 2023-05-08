@@ -58,6 +58,8 @@ class PaymentMethod with _$PaymentMethod {
     /// Containing additional data in case paymentmethod type is UPI.
     @JsonKey(name: 'USBankAccount') required UsBankAccount usBankAccount,
 
+    @JsonKey(name: 'platformPayment') PlatformPayment? platformPayment,
+
     /// Id related to the customer to which this paymentmethod has been saved.
     String? customerId,
   }) = _PaymentMethod;
@@ -823,4 +825,63 @@ class ThreeDSecureUsage with _$ThreeDSecureUsage {
 
   factory ThreeDSecureUsage.fromJson(Map<String, dynamic> json) =>
       _$ThreeDSecureUsageFromJson(json);
+}
+
+@freezed
+class PlatformPayment with _$PlatformPayment {
+  @JsonSerializable(explicitToJson: true)
+  const factory PlatformPayment({
+    required PlatformPaymentShippingContact shippingContact,
+  }) = _PlatformPayment;
+
+  factory PlatformPayment.fromJson(Map<String, dynamic> json) =>
+      _$PlatformPaymentFromJson(json);
+}
+
+@freezed
+class PlatformPaymentShippingContactName with _$PlatformPaymentShippingContactName {
+  @JsonSerializable(explicitToJson: true)
+  const factory PlatformPaymentShippingContactName({
+    String? givenName,
+    String? familyName,
+    String? middleName,
+    String? namePrefix,
+    String? nameSuffix,
+    String? nickname,
+  }) = _PlatformPaymentShippingContactName;
+
+  factory PlatformPaymentShippingContactName.fromJson(Map<String, dynamic> json) =>
+      _$PlatformPaymentShippingContactNameFromJson(json);
+}
+
+@freezed
+class PlatformPaymentShippingContactPostalAddress with _$PlatformPaymentShippingContactPostalAddress {
+  @JsonSerializable(explicitToJson: true)
+  const factory PlatformPaymentShippingContactPostalAddress({
+    String? street,
+    String? subLocality,
+    String? city,
+    String? subAdministrativeArea,
+    String? state,
+    String? postalCode,
+    String? country,
+    String? isoCountryCode,
+  }) = _PlatformPaymentShippingContactPostalAddress;
+
+  factory PlatformPaymentShippingContactPostalAddress.fromJson(Map<String, dynamic> json) =>
+      _$PlatformPaymentShippingContactPostalAddressFromJson(json);
+}
+
+@freezed
+class PlatformPaymentShippingContact with _$PlatformPaymentShippingContact {
+  @JsonSerializable(explicitToJson: true)
+  const factory PlatformPaymentShippingContact({
+    required PlatformPaymentShippingContactName name,
+    String? email,
+    String? phoneNumber,
+    required PlatformPaymentShippingContactPostalAddress postalAddress,
+  }) = _PlatformPaymentShippingContact;
+
+  factory PlatformPaymentShippingContact.fromJson(Map<String, dynamic> json) =>
+      _$PlatformPaymentShippingContactFromJson(json);
 }

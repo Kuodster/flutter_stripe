@@ -24,6 +24,10 @@ _$_PaymentMethod _$$_PaymentMethodFromJson(Map<String, dynamic> json) =>
       upi: Upi.fromJson(json['Upi'] as Map<String, dynamic>),
       usBankAccount:
           UsBankAccount.fromJson(json['USBankAccount'] as Map<String, dynamic>),
+      platformPayment: json['platformPayment'] == null
+          ? null
+          : PlatformPayment.fromJson(
+              json['platformPayment'] as Map<String, dynamic>),
       customerId: json['customerId'] as String?,
     );
 
@@ -42,6 +46,7 @@ Map<String, dynamic> _$$_PaymentMethodToJson(_$_PaymentMethod instance) =>
       'Fpx': instance.fpx.toJson(),
       'Upi': instance.upi.toJson(),
       'USBankAccount': instance.usBankAccount.toJson(),
+      'platformPayment': instance.platformPayment?.toJson(),
       'customerId': instance.customerId,
     };
 
@@ -866,4 +871,84 @@ Map<String, dynamic> _$$_ThreeDSecureUsageToJson(
         _$_ThreeDSecureUsage instance) =>
     <String, dynamic>{
       'isSupported': instance.isSupported,
+    };
+
+_$_PlatformPayment _$$_PlatformPaymentFromJson(Map<String, dynamic> json) =>
+    _$_PlatformPayment(
+      shippingContact: PlatformPaymentShippingContact.fromJson(
+          json['shippingContact'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$$_PlatformPaymentToJson(_$_PlatformPayment instance) =>
+    <String, dynamic>{
+      'shippingContact': instance.shippingContact.toJson(),
+    };
+
+_$_PlatformPaymentShippingContactName
+    _$$_PlatformPaymentShippingContactNameFromJson(Map<String, dynamic> json) =>
+        _$_PlatformPaymentShippingContactName(
+          givenName: json['givenName'] as String?,
+          familyName: json['familyName'] as String?,
+          middleName: json['middleName'] as String?,
+          namePrefix: json['namePrefix'] as String?,
+          nameSuffix: json['nameSuffix'] as String?,
+          nickname: json['nickname'] as String?,
+        );
+
+Map<String, dynamic> _$$_PlatformPaymentShippingContactNameToJson(
+        _$_PlatformPaymentShippingContactName instance) =>
+    <String, dynamic>{
+      'givenName': instance.givenName,
+      'familyName': instance.familyName,
+      'middleName': instance.middleName,
+      'namePrefix': instance.namePrefix,
+      'nameSuffix': instance.nameSuffix,
+      'nickname': instance.nickname,
+    };
+
+_$_PlatformPaymentShippingContactPostalAddress
+    _$$_PlatformPaymentShippingContactPostalAddressFromJson(
+            Map<String, dynamic> json) =>
+        _$_PlatformPaymentShippingContactPostalAddress(
+          street: json['street'] as String?,
+          subLocality: json['subLocality'] as String?,
+          city: json['city'] as String?,
+          subAdministrativeArea: json['subAdministrativeArea'] as String?,
+          state: json['state'] as String?,
+          postalCode: json['postalCode'] as String?,
+          country: json['country'] as String?,
+          isoCountryCode: json['isoCountryCode'] as String?,
+        );
+
+Map<String, dynamic> _$$_PlatformPaymentShippingContactPostalAddressToJson(
+        _$_PlatformPaymentShippingContactPostalAddress instance) =>
+    <String, dynamic>{
+      'street': instance.street,
+      'subLocality': instance.subLocality,
+      'city': instance.city,
+      'subAdministrativeArea': instance.subAdministrativeArea,
+      'state': instance.state,
+      'postalCode': instance.postalCode,
+      'country': instance.country,
+      'isoCountryCode': instance.isoCountryCode,
+    };
+
+_$_PlatformPaymentShippingContact _$$_PlatformPaymentShippingContactFromJson(
+        Map<String, dynamic> json) =>
+    _$_PlatformPaymentShippingContact(
+      name: PlatformPaymentShippingContactName.fromJson(
+          json['name'] as Map<String, dynamic>),
+      email: json['email'] as String?,
+      phoneNumber: json['phoneNumber'] as String?,
+      postalAddress: PlatformPaymentShippingContactPostalAddress.fromJson(
+          json['postalAddress'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$$_PlatformPaymentShippingContactToJson(
+        _$_PlatformPaymentShippingContact instance) =>
+    <String, dynamic>{
+      'name': instance.name.toJson(),
+      'email': instance.email,
+      'phoneNumber': instance.phoneNumber,
+      'postalAddress': instance.postalAddress.toJson(),
     };

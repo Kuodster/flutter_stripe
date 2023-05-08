@@ -34,7 +34,7 @@ extension StripeSdk : PKPaymentAuthorizationViewControllerDelegate, STPApplePayC
                     self.createPlatformPayPaymentMethodResolver?(Errors.createError(ErrorType.Failed, error))
                 } else {
                     let promiseResult = [
-                        "paymentMethod": Mappers.mapFromPaymentMethod(paymentMethod?.splitApplePayAddressByNewline()) ?? [:]
+                        "paymentMethod": Mappers.mapFromPaymentMethod(paymentMethod?.splitApplePayAddressByNewline(), payment: payment) ?? [:]
                     ]
                     self.createPlatformPayPaymentMethodResolver?(promiseResult)
                 }

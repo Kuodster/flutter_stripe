@@ -67,6 +67,8 @@ mixin _$PaymentMethod {
   /// Containing additional data in case paymentmethod type is UPI.
   @JsonKey(name: 'USBankAccount')
   UsBankAccount get usBankAccount => throw _privateConstructorUsedError;
+  @JsonKey(name: 'platformPayment')
+  PlatformPayment? get platformPayment => throw _privateConstructorUsedError;
 
   /// Id related to the customer to which this paymentmethod has been saved.
   String? get customerId => throw _privateConstructorUsedError;
@@ -97,6 +99,7 @@ abstract class $PaymentMethodCopyWith<$Res> {
       @JsonKey(name: 'Fpx') Fpx fpx,
       @JsonKey(name: 'Upi') Upi upi,
       @JsonKey(name: 'USBankAccount') UsBankAccount usBankAccount,
+      @JsonKey(name: 'platformPayment') PlatformPayment? platformPayment,
       String? customerId});
 
   $BillingDetailsCopyWith<$Res> get billingDetails;
@@ -109,6 +112,7 @@ abstract class $PaymentMethodCopyWith<$Res> {
   $FpxCopyWith<$Res> get fpx;
   $UpiCopyWith<$Res> get upi;
   $UsBankAccountCopyWith<$Res> get usBankAccount;
+  $PlatformPaymentCopyWith<$Res>? get platformPayment;
 }
 
 /// @nodoc
@@ -137,6 +141,7 @@ class _$PaymentMethodCopyWithImpl<$Res, $Val extends PaymentMethod>
     Object? fpx = null,
     Object? upi = null,
     Object? usBankAccount = null,
+    Object? platformPayment = freezed,
     Object? customerId = freezed,
   }) {
     return _then(_value.copyWith(
@@ -192,6 +197,10 @@ class _$PaymentMethodCopyWithImpl<$Res, $Val extends PaymentMethod>
           ? _value.usBankAccount
           : usBankAccount // ignore: cast_nullable_to_non_nullable
               as UsBankAccount,
+      platformPayment: freezed == platformPayment
+          ? _value.platformPayment
+          : platformPayment // ignore: cast_nullable_to_non_nullable
+              as PlatformPayment?,
       customerId: freezed == customerId
           ? _value.customerId
           : customerId // ignore: cast_nullable_to_non_nullable
@@ -278,6 +287,18 @@ class _$PaymentMethodCopyWithImpl<$Res, $Val extends PaymentMethod>
       return _then(_value.copyWith(usBankAccount: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PlatformPaymentCopyWith<$Res>? get platformPayment {
+    if (_value.platformPayment == null) {
+      return null;
+    }
+
+    return $PlatformPaymentCopyWith<$Res>(_value.platformPayment!, (value) {
+      return _then(_value.copyWith(platformPayment: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -302,6 +323,7 @@ abstract class _$$_PaymentMethodCopyWith<$Res>
       @JsonKey(name: 'Fpx') Fpx fpx,
       @JsonKey(name: 'Upi') Upi upi,
       @JsonKey(name: 'USBankAccount') UsBankAccount usBankAccount,
+      @JsonKey(name: 'platformPayment') PlatformPayment? platformPayment,
       String? customerId});
 
   @override
@@ -324,6 +346,8 @@ abstract class _$$_PaymentMethodCopyWith<$Res>
   $UpiCopyWith<$Res> get upi;
   @override
   $UsBankAccountCopyWith<$Res> get usBankAccount;
+  @override
+  $PlatformPaymentCopyWith<$Res>? get platformPayment;
 }
 
 /// @nodoc
@@ -350,6 +374,7 @@ class __$$_PaymentMethodCopyWithImpl<$Res>
     Object? fpx = null,
     Object? upi = null,
     Object? usBankAccount = null,
+    Object? platformPayment = freezed,
     Object? customerId = freezed,
   }) {
     return _then(_$_PaymentMethod(
@@ -405,6 +430,10 @@ class __$$_PaymentMethodCopyWithImpl<$Res>
           ? _value.usBankAccount
           : usBankAccount // ignore: cast_nullable_to_non_nullable
               as UsBankAccount,
+      platformPayment: freezed == platformPayment
+          ? _value.platformPayment
+          : platformPayment // ignore: cast_nullable_to_non_nullable
+              as PlatformPayment?,
       customerId: freezed == customerId
           ? _value.customerId
           : customerId // ignore: cast_nullable_to_non_nullable
@@ -431,6 +460,7 @@ class _$_PaymentMethod implements _PaymentMethod {
       @JsonKey(name: 'Fpx') required this.fpx,
       @JsonKey(name: 'Upi') required this.upi,
       @JsonKey(name: 'USBankAccount') required this.usBankAccount,
+      @JsonKey(name: 'platformPayment') this.platformPayment,
       this.customerId});
 
   factory _$_PaymentMethod.fromJson(Map<String, dynamic> json) =>
@@ -496,6 +526,9 @@ class _$_PaymentMethod implements _PaymentMethod {
   @override
   @JsonKey(name: 'USBankAccount')
   final UsBankAccount usBankAccount;
+  @override
+  @JsonKey(name: 'platformPayment')
+  final PlatformPayment? platformPayment;
 
   /// Id related to the customer to which this paymentmethod has been saved.
   @override
@@ -503,7 +536,7 @@ class _$_PaymentMethod implements _PaymentMethod {
 
   @override
   String toString() {
-    return 'PaymentMethod(id: $id, livemode: $livemode, paymentMethodType: $paymentMethodType, billingDetails: $billingDetails, card: $card, sepaDebit: $sepaDebit, bacsDebit: $bacsDebit, auBecsDebit: $auBecsDebit, sofort: $sofort, ideal: $ideal, fpx: $fpx, upi: $upi, usBankAccount: $usBankAccount, customerId: $customerId)';
+    return 'PaymentMethod(id: $id, livemode: $livemode, paymentMethodType: $paymentMethodType, billingDetails: $billingDetails, card: $card, sepaDebit: $sepaDebit, bacsDebit: $bacsDebit, auBecsDebit: $auBecsDebit, sofort: $sofort, ideal: $ideal, fpx: $fpx, upi: $upi, usBankAccount: $usBankAccount, platformPayment: $platformPayment, customerId: $customerId)';
   }
 
   @override
@@ -531,6 +564,8 @@ class _$_PaymentMethod implements _PaymentMethod {
             (identical(other.upi, upi) || other.upi == upi) &&
             (identical(other.usBankAccount, usBankAccount) ||
                 other.usBankAccount == usBankAccount) &&
+            (identical(other.platformPayment, platformPayment) ||
+                other.platformPayment == platformPayment) &&
             (identical(other.customerId, customerId) ||
                 other.customerId == customerId));
   }
@@ -552,6 +587,7 @@ class _$_PaymentMethod implements _PaymentMethod {
       fpx,
       upi,
       usBankAccount,
+      platformPayment,
       customerId);
 
   @JsonKey(ignore: true)
@@ -592,6 +628,8 @@ abstract class _PaymentMethod implements PaymentMethod {
           required final Upi upi,
       @JsonKey(name: 'USBankAccount')
           required final UsBankAccount usBankAccount,
+      @JsonKey(name: 'platformPayment')
+          final PlatformPayment? platformPayment,
       final String? customerId}) = _$_PaymentMethod;
 
   factory _PaymentMethod.fromJson(Map<String, dynamic> json) =
@@ -658,6 +696,9 @@ abstract class _PaymentMethod implements PaymentMethod {
   /// Containing additional data in case paymentmethod type is UPI.
   @JsonKey(name: 'USBankAccount')
   UsBankAccount get usBankAccount;
+  @override
+  @JsonKey(name: 'platformPayment')
+  PlatformPayment? get platformPayment;
   @override
 
   /// Id related to the customer to which this paymentmethod has been saved.
@@ -13227,4 +13268,971 @@ abstract class _ThreeDSecureUsage implements ThreeDSecureUsage {
   @JsonKey(ignore: true)
   _$$_ThreeDSecureUsageCopyWith<_$_ThreeDSecureUsage> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+PlatformPayment _$PlatformPaymentFromJson(Map<String, dynamic> json) {
+  return _PlatformPayment.fromJson(json);
+}
+
+/// @nodoc
+mixin _$PlatformPayment {
+  PlatformPaymentShippingContact get shippingContact =>
+      throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PlatformPaymentCopyWith<PlatformPayment> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PlatformPaymentCopyWith<$Res> {
+  factory $PlatformPaymentCopyWith(
+          PlatformPayment value, $Res Function(PlatformPayment) then) =
+      _$PlatformPaymentCopyWithImpl<$Res, PlatformPayment>;
+  @useResult
+  $Res call({PlatformPaymentShippingContact shippingContact});
+
+  $PlatformPaymentShippingContactCopyWith<$Res> get shippingContact;
+}
+
+/// @nodoc
+class _$PlatformPaymentCopyWithImpl<$Res, $Val extends PlatformPayment>
+    implements $PlatformPaymentCopyWith<$Res> {
+  _$PlatformPaymentCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? shippingContact = null,
+  }) {
+    return _then(_value.copyWith(
+      shippingContact: null == shippingContact
+          ? _value.shippingContact
+          : shippingContact // ignore: cast_nullable_to_non_nullable
+              as PlatformPaymentShippingContact,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PlatformPaymentShippingContactCopyWith<$Res> get shippingContact {
+    return $PlatformPaymentShippingContactCopyWith<$Res>(_value.shippingContact,
+        (value) {
+      return _then(_value.copyWith(shippingContact: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$_PlatformPaymentCopyWith<$Res>
+    implements $PlatformPaymentCopyWith<$Res> {
+  factory _$$_PlatformPaymentCopyWith(
+          _$_PlatformPayment value, $Res Function(_$_PlatformPayment) then) =
+      __$$_PlatformPaymentCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({PlatformPaymentShippingContact shippingContact});
+
+  @override
+  $PlatformPaymentShippingContactCopyWith<$Res> get shippingContact;
+}
+
+/// @nodoc
+class __$$_PlatformPaymentCopyWithImpl<$Res>
+    extends _$PlatformPaymentCopyWithImpl<$Res, _$_PlatformPayment>
+    implements _$$_PlatformPaymentCopyWith<$Res> {
+  __$$_PlatformPaymentCopyWithImpl(
+      _$_PlatformPayment _value, $Res Function(_$_PlatformPayment) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? shippingContact = null,
+  }) {
+    return _then(_$_PlatformPayment(
+      shippingContact: null == shippingContact
+          ? _value.shippingContact
+          : shippingContact // ignore: cast_nullable_to_non_nullable
+              as PlatformPaymentShippingContact,
+    ));
+  }
+}
+
+/// @nodoc
+
+@JsonSerializable(explicitToJson: true)
+class _$_PlatformPayment implements _PlatformPayment {
+  const _$_PlatformPayment({required this.shippingContact});
+
+  factory _$_PlatformPayment.fromJson(Map<String, dynamic> json) =>
+      _$$_PlatformPaymentFromJson(json);
+
+  @override
+  final PlatformPaymentShippingContact shippingContact;
+
+  @override
+  String toString() {
+    return 'PlatformPayment(shippingContact: $shippingContact)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_PlatformPayment &&
+            (identical(other.shippingContact, shippingContact) ||
+                other.shippingContact == shippingContact));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, shippingContact);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_PlatformPaymentCopyWith<_$_PlatformPayment> get copyWith =>
+      __$$_PlatformPaymentCopyWithImpl<_$_PlatformPayment>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_PlatformPaymentToJson(
+      this,
+    );
+  }
+}
+
+abstract class _PlatformPayment implements PlatformPayment {
+  const factory _PlatformPayment(
+          {required final PlatformPaymentShippingContact shippingContact}) =
+      _$_PlatformPayment;
+
+  factory _PlatformPayment.fromJson(Map<String, dynamic> json) =
+      _$_PlatformPayment.fromJson;
+
+  @override
+  PlatformPaymentShippingContact get shippingContact;
+  @override
+  @JsonKey(ignore: true)
+  _$$_PlatformPaymentCopyWith<_$_PlatformPayment> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+PlatformPaymentShippingContactName _$PlatformPaymentShippingContactNameFromJson(
+    Map<String, dynamic> json) {
+  return _PlatformPaymentShippingContactName.fromJson(json);
+}
+
+/// @nodoc
+mixin _$PlatformPaymentShippingContactName {
+  String? get givenName => throw _privateConstructorUsedError;
+  String? get familyName => throw _privateConstructorUsedError;
+  String? get middleName => throw _privateConstructorUsedError;
+  String? get namePrefix => throw _privateConstructorUsedError;
+  String? get nameSuffix => throw _privateConstructorUsedError;
+  String? get nickname => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PlatformPaymentShippingContactNameCopyWith<
+          PlatformPaymentShippingContactName>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PlatformPaymentShippingContactNameCopyWith<$Res> {
+  factory $PlatformPaymentShippingContactNameCopyWith(
+          PlatformPaymentShippingContactName value,
+          $Res Function(PlatformPaymentShippingContactName) then) =
+      _$PlatformPaymentShippingContactNameCopyWithImpl<$Res,
+          PlatformPaymentShippingContactName>;
+  @useResult
+  $Res call(
+      {String? givenName,
+      String? familyName,
+      String? middleName,
+      String? namePrefix,
+      String? nameSuffix,
+      String? nickname});
+}
+
+/// @nodoc
+class _$PlatformPaymentShippingContactNameCopyWithImpl<$Res,
+        $Val extends PlatformPaymentShippingContactName>
+    implements $PlatformPaymentShippingContactNameCopyWith<$Res> {
+  _$PlatformPaymentShippingContactNameCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? givenName = freezed,
+    Object? familyName = freezed,
+    Object? middleName = freezed,
+    Object? namePrefix = freezed,
+    Object? nameSuffix = freezed,
+    Object? nickname = freezed,
+  }) {
+    return _then(_value.copyWith(
+      givenName: freezed == givenName
+          ? _value.givenName
+          : givenName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      familyName: freezed == familyName
+          ? _value.familyName
+          : familyName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      middleName: freezed == middleName
+          ? _value.middleName
+          : middleName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      namePrefix: freezed == namePrefix
+          ? _value.namePrefix
+          : namePrefix // ignore: cast_nullable_to_non_nullable
+              as String?,
+      nameSuffix: freezed == nameSuffix
+          ? _value.nameSuffix
+          : nameSuffix // ignore: cast_nullable_to_non_nullable
+              as String?,
+      nickname: freezed == nickname
+          ? _value.nickname
+          : nickname // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_PlatformPaymentShippingContactNameCopyWith<$Res>
+    implements $PlatformPaymentShippingContactNameCopyWith<$Res> {
+  factory _$$_PlatformPaymentShippingContactNameCopyWith(
+          _$_PlatformPaymentShippingContactName value,
+          $Res Function(_$_PlatformPaymentShippingContactName) then) =
+      __$$_PlatformPaymentShippingContactNameCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String? givenName,
+      String? familyName,
+      String? middleName,
+      String? namePrefix,
+      String? nameSuffix,
+      String? nickname});
+}
+
+/// @nodoc
+class __$$_PlatformPaymentShippingContactNameCopyWithImpl<$Res>
+    extends _$PlatformPaymentShippingContactNameCopyWithImpl<$Res,
+        _$_PlatformPaymentShippingContactName>
+    implements _$$_PlatformPaymentShippingContactNameCopyWith<$Res> {
+  __$$_PlatformPaymentShippingContactNameCopyWithImpl(
+      _$_PlatformPaymentShippingContactName _value,
+      $Res Function(_$_PlatformPaymentShippingContactName) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? givenName = freezed,
+    Object? familyName = freezed,
+    Object? middleName = freezed,
+    Object? namePrefix = freezed,
+    Object? nameSuffix = freezed,
+    Object? nickname = freezed,
+  }) {
+    return _then(_$_PlatformPaymentShippingContactName(
+      givenName: freezed == givenName
+          ? _value.givenName
+          : givenName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      familyName: freezed == familyName
+          ? _value.familyName
+          : familyName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      middleName: freezed == middleName
+          ? _value.middleName
+          : middleName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      namePrefix: freezed == namePrefix
+          ? _value.namePrefix
+          : namePrefix // ignore: cast_nullable_to_non_nullable
+              as String?,
+      nameSuffix: freezed == nameSuffix
+          ? _value.nameSuffix
+          : nameSuffix // ignore: cast_nullable_to_non_nullable
+              as String?,
+      nickname: freezed == nickname
+          ? _value.nickname
+          : nickname // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+@JsonSerializable(explicitToJson: true)
+class _$_PlatformPaymentShippingContactName
+    implements _PlatformPaymentShippingContactName {
+  const _$_PlatformPaymentShippingContactName(
+      {this.givenName,
+      this.familyName,
+      this.middleName,
+      this.namePrefix,
+      this.nameSuffix,
+      this.nickname});
+
+  factory _$_PlatformPaymentShippingContactName.fromJson(
+          Map<String, dynamic> json) =>
+      _$$_PlatformPaymentShippingContactNameFromJson(json);
+
+  @override
+  final String? givenName;
+  @override
+  final String? familyName;
+  @override
+  final String? middleName;
+  @override
+  final String? namePrefix;
+  @override
+  final String? nameSuffix;
+  @override
+  final String? nickname;
+
+  @override
+  String toString() {
+    return 'PlatformPaymentShippingContactName(givenName: $givenName, familyName: $familyName, middleName: $middleName, namePrefix: $namePrefix, nameSuffix: $nameSuffix, nickname: $nickname)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_PlatformPaymentShippingContactName &&
+            (identical(other.givenName, givenName) ||
+                other.givenName == givenName) &&
+            (identical(other.familyName, familyName) ||
+                other.familyName == familyName) &&
+            (identical(other.middleName, middleName) ||
+                other.middleName == middleName) &&
+            (identical(other.namePrefix, namePrefix) ||
+                other.namePrefix == namePrefix) &&
+            (identical(other.nameSuffix, nameSuffix) ||
+                other.nameSuffix == nameSuffix) &&
+            (identical(other.nickname, nickname) ||
+                other.nickname == nickname));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, givenName, familyName,
+      middleName, namePrefix, nameSuffix, nickname);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_PlatformPaymentShippingContactNameCopyWith<
+          _$_PlatformPaymentShippingContactName>
+      get copyWith => __$$_PlatformPaymentShippingContactNameCopyWithImpl<
+          _$_PlatformPaymentShippingContactName>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_PlatformPaymentShippingContactNameToJson(
+      this,
+    );
+  }
+}
+
+abstract class _PlatformPaymentShippingContactName
+    implements PlatformPaymentShippingContactName {
+  const factory _PlatformPaymentShippingContactName(
+      {final String? givenName,
+      final String? familyName,
+      final String? middleName,
+      final String? namePrefix,
+      final String? nameSuffix,
+      final String? nickname}) = _$_PlatformPaymentShippingContactName;
+
+  factory _PlatformPaymentShippingContactName.fromJson(
+          Map<String, dynamic> json) =
+      _$_PlatformPaymentShippingContactName.fromJson;
+
+  @override
+  String? get givenName;
+  @override
+  String? get familyName;
+  @override
+  String? get middleName;
+  @override
+  String? get namePrefix;
+  @override
+  String? get nameSuffix;
+  @override
+  String? get nickname;
+  @override
+  @JsonKey(ignore: true)
+  _$$_PlatformPaymentShippingContactNameCopyWith<
+          _$_PlatformPaymentShippingContactName>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+PlatformPaymentShippingContactPostalAddress
+    _$PlatformPaymentShippingContactPostalAddressFromJson(
+        Map<String, dynamic> json) {
+  return _PlatformPaymentShippingContactPostalAddress.fromJson(json);
+}
+
+/// @nodoc
+mixin _$PlatformPaymentShippingContactPostalAddress {
+  String? get street => throw _privateConstructorUsedError;
+  String? get subLocality => throw _privateConstructorUsedError;
+  String? get city => throw _privateConstructorUsedError;
+  String? get subAdministrativeArea => throw _privateConstructorUsedError;
+  String? get state => throw _privateConstructorUsedError;
+  String? get postalCode => throw _privateConstructorUsedError;
+  String? get country => throw _privateConstructorUsedError;
+  String? get isoCountryCode => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PlatformPaymentShippingContactPostalAddressCopyWith<
+          PlatformPaymentShippingContactPostalAddress>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PlatformPaymentShippingContactPostalAddressCopyWith<$Res> {
+  factory $PlatformPaymentShippingContactPostalAddressCopyWith(
+          PlatformPaymentShippingContactPostalAddress value,
+          $Res Function(PlatformPaymentShippingContactPostalAddress) then) =
+      _$PlatformPaymentShippingContactPostalAddressCopyWithImpl<$Res,
+          PlatformPaymentShippingContactPostalAddress>;
+  @useResult
+  $Res call(
+      {String? street,
+      String? subLocality,
+      String? city,
+      String? subAdministrativeArea,
+      String? state,
+      String? postalCode,
+      String? country,
+      String? isoCountryCode});
+}
+
+/// @nodoc
+class _$PlatformPaymentShippingContactPostalAddressCopyWithImpl<$Res,
+        $Val extends PlatformPaymentShippingContactPostalAddress>
+    implements $PlatformPaymentShippingContactPostalAddressCopyWith<$Res> {
+  _$PlatformPaymentShippingContactPostalAddressCopyWithImpl(
+      this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? street = freezed,
+    Object? subLocality = freezed,
+    Object? city = freezed,
+    Object? subAdministrativeArea = freezed,
+    Object? state = freezed,
+    Object? postalCode = freezed,
+    Object? country = freezed,
+    Object? isoCountryCode = freezed,
+  }) {
+    return _then(_value.copyWith(
+      street: freezed == street
+          ? _value.street
+          : street // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subLocality: freezed == subLocality
+          ? _value.subLocality
+          : subLocality // ignore: cast_nullable_to_non_nullable
+              as String?,
+      city: freezed == city
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subAdministrativeArea: freezed == subAdministrativeArea
+          ? _value.subAdministrativeArea
+          : subAdministrativeArea // ignore: cast_nullable_to_non_nullable
+              as String?,
+      state: freezed == state
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as String?,
+      postalCode: freezed == postalCode
+          ? _value.postalCode
+          : postalCode // ignore: cast_nullable_to_non_nullable
+              as String?,
+      country: freezed == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isoCountryCode: freezed == isoCountryCode
+          ? _value.isoCountryCode
+          : isoCountryCode // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_PlatformPaymentShippingContactPostalAddressCopyWith<$Res>
+    implements $PlatformPaymentShippingContactPostalAddressCopyWith<$Res> {
+  factory _$$_PlatformPaymentShippingContactPostalAddressCopyWith(
+          _$_PlatformPaymentShippingContactPostalAddress value,
+          $Res Function(_$_PlatformPaymentShippingContactPostalAddress) then) =
+      __$$_PlatformPaymentShippingContactPostalAddressCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String? street,
+      String? subLocality,
+      String? city,
+      String? subAdministrativeArea,
+      String? state,
+      String? postalCode,
+      String? country,
+      String? isoCountryCode});
+}
+
+/// @nodoc
+class __$$_PlatformPaymentShippingContactPostalAddressCopyWithImpl<$Res>
+    extends _$PlatformPaymentShippingContactPostalAddressCopyWithImpl<$Res,
+        _$_PlatformPaymentShippingContactPostalAddress>
+    implements _$$_PlatformPaymentShippingContactPostalAddressCopyWith<$Res> {
+  __$$_PlatformPaymentShippingContactPostalAddressCopyWithImpl(
+      _$_PlatformPaymentShippingContactPostalAddress _value,
+      $Res Function(_$_PlatformPaymentShippingContactPostalAddress) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? street = freezed,
+    Object? subLocality = freezed,
+    Object? city = freezed,
+    Object? subAdministrativeArea = freezed,
+    Object? state = freezed,
+    Object? postalCode = freezed,
+    Object? country = freezed,
+    Object? isoCountryCode = freezed,
+  }) {
+    return _then(_$_PlatformPaymentShippingContactPostalAddress(
+      street: freezed == street
+          ? _value.street
+          : street // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subLocality: freezed == subLocality
+          ? _value.subLocality
+          : subLocality // ignore: cast_nullable_to_non_nullable
+              as String?,
+      city: freezed == city
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subAdministrativeArea: freezed == subAdministrativeArea
+          ? _value.subAdministrativeArea
+          : subAdministrativeArea // ignore: cast_nullable_to_non_nullable
+              as String?,
+      state: freezed == state
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as String?,
+      postalCode: freezed == postalCode
+          ? _value.postalCode
+          : postalCode // ignore: cast_nullable_to_non_nullable
+              as String?,
+      country: freezed == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isoCountryCode: freezed == isoCountryCode
+          ? _value.isoCountryCode
+          : isoCountryCode // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+@JsonSerializable(explicitToJson: true)
+class _$_PlatformPaymentShippingContactPostalAddress
+    implements _PlatformPaymentShippingContactPostalAddress {
+  const _$_PlatformPaymentShippingContactPostalAddress(
+      {this.street,
+      this.subLocality,
+      this.city,
+      this.subAdministrativeArea,
+      this.state,
+      this.postalCode,
+      this.country,
+      this.isoCountryCode});
+
+  factory _$_PlatformPaymentShippingContactPostalAddress.fromJson(
+          Map<String, dynamic> json) =>
+      _$$_PlatformPaymentShippingContactPostalAddressFromJson(json);
+
+  @override
+  final String? street;
+  @override
+  final String? subLocality;
+  @override
+  final String? city;
+  @override
+  final String? subAdministrativeArea;
+  @override
+  final String? state;
+  @override
+  final String? postalCode;
+  @override
+  final String? country;
+  @override
+  final String? isoCountryCode;
+
+  @override
+  String toString() {
+    return 'PlatformPaymentShippingContactPostalAddress(street: $street, subLocality: $subLocality, city: $city, subAdministrativeArea: $subAdministrativeArea, state: $state, postalCode: $postalCode, country: $country, isoCountryCode: $isoCountryCode)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_PlatformPaymentShippingContactPostalAddress &&
+            (identical(other.street, street) || other.street == street) &&
+            (identical(other.subLocality, subLocality) ||
+                other.subLocality == subLocality) &&
+            (identical(other.city, city) || other.city == city) &&
+            (identical(other.subAdministrativeArea, subAdministrativeArea) ||
+                other.subAdministrativeArea == subAdministrativeArea) &&
+            (identical(other.state, state) || other.state == state) &&
+            (identical(other.postalCode, postalCode) ||
+                other.postalCode == postalCode) &&
+            (identical(other.country, country) || other.country == country) &&
+            (identical(other.isoCountryCode, isoCountryCode) ||
+                other.isoCountryCode == isoCountryCode));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, street, subLocality, city,
+      subAdministrativeArea, state, postalCode, country, isoCountryCode);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_PlatformPaymentShippingContactPostalAddressCopyWith<
+          _$_PlatformPaymentShippingContactPostalAddress>
+      get copyWith =>
+          __$$_PlatformPaymentShippingContactPostalAddressCopyWithImpl<
+              _$_PlatformPaymentShippingContactPostalAddress>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_PlatformPaymentShippingContactPostalAddressToJson(
+      this,
+    );
+  }
+}
+
+abstract class _PlatformPaymentShippingContactPostalAddress
+    implements PlatformPaymentShippingContactPostalAddress {
+  const factory _PlatformPaymentShippingContactPostalAddress(
+          {final String? street,
+          final String? subLocality,
+          final String? city,
+          final String? subAdministrativeArea,
+          final String? state,
+          final String? postalCode,
+          final String? country,
+          final String? isoCountryCode}) =
+      _$_PlatformPaymentShippingContactPostalAddress;
+
+  factory _PlatformPaymentShippingContactPostalAddress.fromJson(
+          Map<String, dynamic> json) =
+      _$_PlatformPaymentShippingContactPostalAddress.fromJson;
+
+  @override
+  String? get street;
+  @override
+  String? get subLocality;
+  @override
+  String? get city;
+  @override
+  String? get subAdministrativeArea;
+  @override
+  String? get state;
+  @override
+  String? get postalCode;
+  @override
+  String? get country;
+  @override
+  String? get isoCountryCode;
+  @override
+  @JsonKey(ignore: true)
+  _$$_PlatformPaymentShippingContactPostalAddressCopyWith<
+          _$_PlatformPaymentShippingContactPostalAddress>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+PlatformPaymentShippingContact _$PlatformPaymentShippingContactFromJson(
+    Map<String, dynamic> json) {
+  return _PlatformPaymentShippingContact.fromJson(json);
+}
+
+/// @nodoc
+mixin _$PlatformPaymentShippingContact {
+  PlatformPaymentShippingContactName get name =>
+      throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
+  String? get phoneNumber => throw _privateConstructorUsedError;
+  PlatformPaymentShippingContactPostalAddress get postalAddress =>
+      throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PlatformPaymentShippingContactCopyWith<PlatformPaymentShippingContact>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PlatformPaymentShippingContactCopyWith<$Res> {
+  factory $PlatformPaymentShippingContactCopyWith(
+          PlatformPaymentShippingContact value,
+          $Res Function(PlatformPaymentShippingContact) then) =
+      _$PlatformPaymentShippingContactCopyWithImpl<$Res,
+          PlatformPaymentShippingContact>;
+  @useResult
+  $Res call(
+      {PlatformPaymentShippingContactName name,
+      String? email,
+      String? phoneNumber,
+      PlatformPaymentShippingContactPostalAddress postalAddress});
+
+  $PlatformPaymentShippingContactNameCopyWith<$Res> get name;
+  $PlatformPaymentShippingContactPostalAddressCopyWith<$Res> get postalAddress;
+}
+
+/// @nodoc
+class _$PlatformPaymentShippingContactCopyWithImpl<$Res,
+        $Val extends PlatformPaymentShippingContact>
+    implements $PlatformPaymentShippingContactCopyWith<$Res> {
+  _$PlatformPaymentShippingContactCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? email = freezed,
+    Object? phoneNumber = freezed,
+    Object? postalAddress = null,
+  }) {
+    return _then(_value.copyWith(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as PlatformPaymentShippingContactName,
+      email: freezed == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      phoneNumber: freezed == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
+      postalAddress: null == postalAddress
+          ? _value.postalAddress
+          : postalAddress // ignore: cast_nullable_to_non_nullable
+              as PlatformPaymentShippingContactPostalAddress,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PlatformPaymentShippingContactNameCopyWith<$Res> get name {
+    return $PlatformPaymentShippingContactNameCopyWith<$Res>(_value.name,
+        (value) {
+      return _then(_value.copyWith(name: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PlatformPaymentShippingContactPostalAddressCopyWith<$Res> get postalAddress {
+    return $PlatformPaymentShippingContactPostalAddressCopyWith<$Res>(
+        _value.postalAddress, (value) {
+      return _then(_value.copyWith(postalAddress: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$_PlatformPaymentShippingContactCopyWith<$Res>
+    implements $PlatformPaymentShippingContactCopyWith<$Res> {
+  factory _$$_PlatformPaymentShippingContactCopyWith(
+          _$_PlatformPaymentShippingContact value,
+          $Res Function(_$_PlatformPaymentShippingContact) then) =
+      __$$_PlatformPaymentShippingContactCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {PlatformPaymentShippingContactName name,
+      String? email,
+      String? phoneNumber,
+      PlatformPaymentShippingContactPostalAddress postalAddress});
+
+  @override
+  $PlatformPaymentShippingContactNameCopyWith<$Res> get name;
+  @override
+  $PlatformPaymentShippingContactPostalAddressCopyWith<$Res> get postalAddress;
+}
+
+/// @nodoc
+class __$$_PlatformPaymentShippingContactCopyWithImpl<$Res>
+    extends _$PlatformPaymentShippingContactCopyWithImpl<$Res,
+        _$_PlatformPaymentShippingContact>
+    implements _$$_PlatformPaymentShippingContactCopyWith<$Res> {
+  __$$_PlatformPaymentShippingContactCopyWithImpl(
+      _$_PlatformPaymentShippingContact _value,
+      $Res Function(_$_PlatformPaymentShippingContact) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? email = freezed,
+    Object? phoneNumber = freezed,
+    Object? postalAddress = null,
+  }) {
+    return _then(_$_PlatformPaymentShippingContact(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as PlatformPaymentShippingContactName,
+      email: freezed == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      phoneNumber: freezed == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
+      postalAddress: null == postalAddress
+          ? _value.postalAddress
+          : postalAddress // ignore: cast_nullable_to_non_nullable
+              as PlatformPaymentShippingContactPostalAddress,
+    ));
+  }
+}
+
+/// @nodoc
+
+@JsonSerializable(explicitToJson: true)
+class _$_PlatformPaymentShippingContact
+    implements _PlatformPaymentShippingContact {
+  const _$_PlatformPaymentShippingContact(
+      {required this.name,
+      this.email,
+      this.phoneNumber,
+      required this.postalAddress});
+
+  factory _$_PlatformPaymentShippingContact.fromJson(
+          Map<String, dynamic> json) =>
+      _$$_PlatformPaymentShippingContactFromJson(json);
+
+  @override
+  final PlatformPaymentShippingContactName name;
+  @override
+  final String? email;
+  @override
+  final String? phoneNumber;
+  @override
+  final PlatformPaymentShippingContactPostalAddress postalAddress;
+
+  @override
+  String toString() {
+    return 'PlatformPaymentShippingContact(name: $name, email: $email, phoneNumber: $phoneNumber, postalAddress: $postalAddress)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_PlatformPaymentShippingContact &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.phoneNumber, phoneNumber) ||
+                other.phoneNumber == phoneNumber) &&
+            (identical(other.postalAddress, postalAddress) ||
+                other.postalAddress == postalAddress));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, name, email, phoneNumber, postalAddress);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_PlatformPaymentShippingContactCopyWith<_$_PlatformPaymentShippingContact>
+      get copyWith => __$$_PlatformPaymentShippingContactCopyWithImpl<
+          _$_PlatformPaymentShippingContact>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_PlatformPaymentShippingContactToJson(
+      this,
+    );
+  }
+}
+
+abstract class _PlatformPaymentShippingContact
+    implements PlatformPaymentShippingContact {
+  const factory _PlatformPaymentShippingContact(
+      {required final PlatformPaymentShippingContactName name,
+      final String? email,
+      final String? phoneNumber,
+      required final PlatformPaymentShippingContactPostalAddress
+          postalAddress}) = _$_PlatformPaymentShippingContact;
+
+  factory _PlatformPaymentShippingContact.fromJson(Map<String, dynamic> json) =
+      _$_PlatformPaymentShippingContact.fromJson;
+
+  @override
+  PlatformPaymentShippingContactName get name;
+  @override
+  String? get email;
+  @override
+  String? get phoneNumber;
+  @override
+  PlatformPaymentShippingContactPostalAddress get postalAddress;
+  @override
+  @JsonKey(ignore: true)
+  _$$_PlatformPaymentShippingContactCopyWith<_$_PlatformPaymentShippingContact>
+      get copyWith => throw _privateConstructorUsedError;
 }

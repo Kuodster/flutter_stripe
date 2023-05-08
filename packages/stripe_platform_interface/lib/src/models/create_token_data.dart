@@ -127,7 +127,9 @@ class TokenData with _$TokenData {
     required String id,
 
     /// Timestamp when token was created
-    @JsonKey(name: 'created') required int created,
+    //@JsonKey(name: 'created') required int created,
+    // Bugfix for iOS
+    @JsonKey(fromJson: _parseCreated) required int created,
 
     /// Type of the token
     required TokenType type,
@@ -147,6 +149,8 @@ class TokenData with _$TokenData {
 
   @Deprecated('Use [created] instead')
   String get createdDateTime => created.toString();
+
+  static int _parseCreated(dynamic created) => created is String ? int.parse(created) : created;
 }
 
 @freezed

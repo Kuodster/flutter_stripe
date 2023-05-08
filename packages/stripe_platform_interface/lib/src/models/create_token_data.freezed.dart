@@ -1585,7 +1585,7 @@ mixin _$TokenData {
   /// Timestamp when token was created
 //@JsonKey(name: 'created') required int created,
 // Bugfix for iOS
-  @JsonKey(fromJson: _parseCreated)
+  @JsonKey(fromJson: parseCreated)
   int get created => throw _privateConstructorUsedError;
 
   /// Type of the token
@@ -1613,7 +1613,7 @@ abstract class $TokenDataCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      @JsonKey(fromJson: _parseCreated) int created,
+      @JsonKey(fromJson: parseCreated) int created,
       TokenType type,
       bool livemode,
       BankAccount? bankAccount,
@@ -1705,7 +1705,7 @@ abstract class _$$_TokenDataCopyWith<$Res> implements $TokenDataCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      @JsonKey(fromJson: _parseCreated) int created,
+      @JsonKey(fromJson: parseCreated) int created,
       TokenType type,
       bool livemode,
       BankAccount? bankAccount,
@@ -1769,7 +1769,7 @@ class __$$_TokenDataCopyWithImpl<$Res>
 class _$_TokenData extends _TokenData {
   const _$_TokenData(
       {required this.id,
-      @JsonKey(fromJson: _parseCreated) required this.created,
+      @JsonKey(fromJson: parseCreated) required this.created,
       required this.type,
       required this.livemode,
       this.bankAccount,
@@ -1787,7 +1787,7 @@ class _$_TokenData extends _TokenData {
 //@JsonKey(name: 'created') required int created,
 // Bugfix for iOS
   @override
-  @JsonKey(fromJson: _parseCreated)
+  @JsonKey(fromJson: parseCreated)
   final int created;
 
   /// Type of the token
@@ -1848,7 +1848,7 @@ class _$_TokenData extends _TokenData {
 abstract class _TokenData extends TokenData {
   const factory _TokenData(
       {required final String id,
-      @JsonKey(fromJson: _parseCreated) required final int created,
+      @JsonKey(fromJson: parseCreated) required final int created,
       required final TokenType type,
       required final bool livemode,
       final BankAccount? bankAccount,
@@ -1867,7 +1867,7 @@ abstract class _TokenData extends TokenData {
   /// Timestamp when token was created
 //@JsonKey(name: 'created') required int created,
 // Bugfix for iOS
-  @JsonKey(fromJson: _parseCreated)
+  @JsonKey(fromJson: parseCreated)
   int get created;
   @override
 

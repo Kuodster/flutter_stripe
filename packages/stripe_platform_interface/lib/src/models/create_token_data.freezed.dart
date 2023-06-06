@@ -1583,10 +1583,8 @@ mixin _$TokenData {
   String get id => throw _privateConstructorUsedError;
 
   /// Timestamp when token was created
-//@JsonKey(name: 'created') required int created,
-// Bugfix for iOS
-  @JsonKey(fromJson: anyToInt)
-  int get created => throw _privateConstructorUsedError;
+  @JsonKey(name: 'created')
+  String get created => throw _privateConstructorUsedError;
 
   /// Type of the token
   TokenType get type => throw _privateConstructorUsedError;
@@ -1613,7 +1611,7 @@ abstract class $TokenDataCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      @JsonKey(fromJson: anyToInt) int created,
+      @JsonKey(name: 'created') String created,
       TokenType type,
       bool livemode,
       BankAccount? bankAccount,
@@ -1651,7 +1649,7 @@ class _$TokenDataCopyWithImpl<$Res, $Val extends TokenData>
       created: null == created
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -1705,7 +1703,7 @@ abstract class _$$_TokenDataCopyWith<$Res> implements $TokenDataCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      @JsonKey(fromJson: anyToInt) int created,
+      @JsonKey(name: 'created') String created,
       TokenType type,
       bool livemode,
       BankAccount? bankAccount,
@@ -1743,7 +1741,7 @@ class __$$_TokenDataCopyWithImpl<$Res>
       created: null == created
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -1769,7 +1767,7 @@ class __$$_TokenDataCopyWithImpl<$Res>
 class _$_TokenData extends _TokenData {
   const _$_TokenData(
       {required this.id,
-      @JsonKey(fromJson: anyToInt) required this.created,
+      @JsonKey(name: 'created') required this.created,
       required this.type,
       required this.livemode,
       this.bankAccount,
@@ -1784,11 +1782,9 @@ class _$_TokenData extends _TokenData {
   final String id;
 
   /// Timestamp when token was created
-//@JsonKey(name: 'created') required int created,
-// Bugfix for iOS
   @override
-  @JsonKey(fromJson: anyToInt)
-  final int created;
+  @JsonKey(name: 'created')
+  final String created;
 
   /// Type of the token
   @override
@@ -1848,7 +1844,7 @@ class _$_TokenData extends _TokenData {
 abstract class _TokenData extends TokenData {
   const factory _TokenData(
       {required final String id,
-      @JsonKey(fromJson: anyToInt) required final int created,
+      @JsonKey(name: 'created') required final String created,
       required final TokenType type,
       required final bool livemode,
       final BankAccount? bankAccount,
@@ -1865,10 +1861,8 @@ abstract class _TokenData extends TokenData {
   @override
 
   /// Timestamp when token was created
-//@JsonKey(name: 'created') required int created,
-// Bugfix for iOS
-  @JsonKey(fromJson: anyToInt)
-  int get created;
+  @JsonKey(name: 'created')
+  String get created;
   @override
 
   /// Type of the token

@@ -1,11 +1,11 @@
 name: flutter_stripe
 description: Flutter library for Stripe. Supports PaymentSheets, Apple & Google Pay, SCA, PSD2 and much more.
-version: 9.2.0
+version: 9.2.1
 homepage: https://github.com/flutter-stripe/flutter_stripe
 repository: https://github.com/flutter-stripe/flutter_stripe
 
 environment:
-  sdk: ">=2.17.0 <3.0.0"
+  sdk: ">=2.17.0 <4.0.0"
   flutter: ">=3.0.0"
 
 flutter:

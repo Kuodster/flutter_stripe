@@ -120,16 +120,13 @@ class BankAccountTokenParams with _$BankAccountTokenParams {
 
 /// Data that provides information about the token
 class TokenData with _$TokenData {
-
   const TokenData._();
   const factory TokenData({
     /// Unique identifier of the token
     required String id,
 
     /// Timestamp when token was created
-    //@JsonKey(name: 'created') required int created,
-    // Bugfix for iOS
-    @JsonKey(fromJson: anyToInt) required int created,
+    @JsonKey(name: 'created') required String created,
 
     /// Type of the token
     required TokenType type,
@@ -150,8 +147,6 @@ class TokenData with _$TokenData {
   @Deprecated('Use [created] instead')
   String get createdDateTime => created.toString();
 }
-
-int anyToInt(dynamic created) => created is String ? int.parse(created) : created;
 
 @freezed
 

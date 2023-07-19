@@ -610,16 +610,24 @@ abstract class _PaymentMethod implements PaymentMethod {
       required final bool livemode,
       required final String paymentMethodType,
       required final BillingDetails billingDetails,
-      @JsonKey(name: 'Card') required final Card card,
-      @JsonKey(name: 'SepaDebit') required final SepaDebit sepaDebit,
-      @JsonKey(name: 'BacsDebit') required final BacsDebit bacsDebit,
-      @JsonKey(name: 'AuBecsDebit') required final AuBecsDebit auBecsDebit,
-      @JsonKey(name: 'Sofort') required final Sofort sofort,
-      @JsonKey(name: 'Ideal') required final Ideal ideal,
-      @JsonKey(name: 'Fpx') required final Fpx fpx,
-      @JsonKey(name: 'Upi') required final Upi upi,
+      @JsonKey(name: 'Card')
+          required final Card card,
+      @JsonKey(name: 'SepaDebit')
+          required final SepaDebit sepaDebit,
+      @JsonKey(name: 'BacsDebit')
+          required final BacsDebit bacsDebit,
+      @JsonKey(name: 'AuBecsDebit')
+          required final AuBecsDebit auBecsDebit,
+      @JsonKey(name: 'Sofort')
+          required final Sofort sofort,
+      @JsonKey(name: 'Ideal')
+          required final Ideal ideal,
+      @JsonKey(name: 'Fpx')
+          required final Fpx fpx,
+      @JsonKey(name: 'Upi')
+          required final Upi upi,
       @JsonKey(name: 'USBankAccount')
-      required final UsBankAccount usBankAccount,
+          required final UsBankAccount usBankAccount,
       @JsonKey(name: 'platformPayment')
           final PlatformPayment? platformPayment,
       final String? customerId}) = _$_PaymentMethod;
@@ -2892,7 +2900,7 @@ PaymentMethodParams _$PaymentMethodParamsFromJson(Map<String, dynamic> json) {
       return _PaymentMethodParamsCardWithMethodId.fromJson(json);
     case 'Alipay':
       return _PaymentMethodParamsAlipay.fromJson(json);
-    case 'CashAppPay':
+    case 'CashApp':
       return _PaymentMethodParamsCashAppPay.fromJson(json);
     case 'Ideal':
       return _PaymentMethodParamsIdeal.fromJson(json);
@@ -4422,7 +4430,7 @@ class _$_PaymentMethodParamsCashAppPay
     implements _PaymentMethodParamsCashAppPay {
   const _$_PaymentMethodParamsCashAppPay(
       {required this.paymentMethodData, final String? $type})
-      : $type = $type ?? 'CashAppPay';
+      : $type = $type ?? 'CashApp';
 
   factory _$_PaymentMethodParamsCashAppPay.fromJson(
           Map<String, dynamic> json) =>

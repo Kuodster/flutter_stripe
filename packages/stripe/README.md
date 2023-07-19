@@ -68,10 +68,15 @@ You will also need to update in your Podfile:
 
 `platform :ios, '13.0'`
 
-
 #### Web (Experimental)
 
-Now you can use Stripe with Flutter web! Notice right now it is highly experimental and only a subset of features is implemented.
+Now you can use Stripe with Flutter web! Notice right now it is highly experimental and only a subset of features is implemented. Namely:
+
+- Create paymentmethod
+- Confirm payment intent
+- Confirm setup intent
+- Create token
+- Confirm payment element (recommended way of handling payments on web)
 
 To use Stripe on web, it is required to add `flutter_stripe_web` in your pubspec file
 
@@ -151,10 +156,16 @@ Future<void> onGooglePayResult(paymentResult) async {
   - [Get your test Stripe API keys](https://stripe.com/docs/keys)
   - `cp lib/.env.example.dart lib/.env.dart` and set your Stripe publishable key.
   - `cp server/.env.example server/.env` and set the variable values in your newly created `.env` file.
-- Install the server dependencies: `npm install` or `yarn --cwd "server"`
+- Install the server dependencies in the `server` directory: 
+  * `cd server`
+  * `npm install` or `yarn --cwd "server"`
 - Start the example
-  - Terminal 1: `npm start` or `yarn --cwd "server" start`
-  - Terminal 2: `flutter run`
+  - Terminal 1: 
+    * Move to the `server` directory: `cd server`
+    * Run npm or yarn: `npm start` or `yarn --cwd "server" start`
+  - Terminal 2: 
+    * Move to the `lib` directory: `cd lib`
+    * Run flutter: `flutter run`
 
 ##### Additional steps for webhook forwarding
 

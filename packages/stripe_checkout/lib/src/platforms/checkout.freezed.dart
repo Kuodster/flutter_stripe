@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'checkout.dart';
 
@@ -43,10 +43,10 @@ mixin _$CheckoutResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? redirected,
-    TResult Function()? success,
-    TResult Function()? canceled,
-    TResult Function(Object error)? error,
+    TResult? Function()? redirected,
+    TResult? Function()? success,
+    TResult? Function()? canceled,
+    TResult? Function(Object error)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -68,10 +68,10 @@ mixin _$CheckoutResponse {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Redirect value)? redirected,
-    TResult Function(_Success value)? success,
-    TResult Function(_Canceled value)? canceled,
-    TResult Function(_Error value)? error,
+    TResult? Function(_Redirect value)? redirected,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Canceled value)? canceled,
+    TResult? Function(_Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -90,17 +90,18 @@ mixin _$CheckoutResponse {
 abstract class $CheckoutResponseCopyWith<$Res> {
   factory $CheckoutResponseCopyWith(
           CheckoutResponse value, $Res Function(CheckoutResponse) then) =
-      _$CheckoutResponseCopyWithImpl<$Res>;
+      _$CheckoutResponseCopyWithImpl<$Res, CheckoutResponse>;
 }
 
 /// @nodoc
-class _$CheckoutResponseCopyWithImpl<$Res>
+class _$CheckoutResponseCopyWithImpl<$Res, $Val extends CheckoutResponse>
     implements $CheckoutResponseCopyWith<$Res> {
   _$CheckoutResponseCopyWithImpl(this._value, this._then);
 
-  final CheckoutResponse _value;
   // ignore: unused_field
-  final $Res Function(CheckoutResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -112,14 +113,11 @@ abstract class _$$_RedirectCopyWith<$Res> {
 
 /// @nodoc
 class __$$_RedirectCopyWithImpl<$Res>
-    extends _$CheckoutResponseCopyWithImpl<$Res>
+    extends _$CheckoutResponseCopyWithImpl<$Res, _$_Redirect>
     implements _$$_RedirectCopyWith<$Res> {
   __$$_RedirectCopyWithImpl(
       _$_Redirect _value, $Res Function(_$_Redirect) _then)
-      : super(_value, (v) => _then(v as _$_Redirect));
-
-  @override
-  _$_Redirect get _value => super._value as _$_Redirect;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -162,10 +160,10 @@ class _$_Redirect implements _Redirect {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? redirected,
-    TResult Function()? success,
-    TResult Function()? canceled,
-    TResult Function(Object error)? error,
+    TResult? Function()? redirected,
+    TResult? Function()? success,
+    TResult? Function()? canceled,
+    TResult? Function(Object error)? error,
   }) {
     return redirected?.call();
   }
@@ -199,10 +197,10 @@ class _$_Redirect implements _Redirect {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Redirect value)? redirected,
-    TResult Function(_Success value)? success,
-    TResult Function(_Canceled value)? canceled,
-    TResult Function(_Error value)? error,
+    TResult? Function(_Redirect value)? redirected,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Canceled value)? canceled,
+    TResult? Function(_Error value)? error,
   }) {
     return redirected?.call(this);
   }
@@ -224,7 +222,9 @@ class _$_Redirect implements _Redirect {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RedirectToJson(this);
+    return _$$_RedirectToJson(
+      this,
+    );
   }
 }
 
@@ -243,13 +243,10 @@ abstract class _$$_SuccessCopyWith<$Res> {
 
 /// @nodoc
 class __$$_SuccessCopyWithImpl<$Res>
-    extends _$CheckoutResponseCopyWithImpl<$Res>
+    extends _$CheckoutResponseCopyWithImpl<$Res, _$_Success>
     implements _$$_SuccessCopyWith<$Res> {
   __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
-      : super(_value, (v) => _then(v as _$_Success));
-
-  @override
-  _$_Success get _value => super._value as _$_Success;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -292,10 +289,10 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? redirected,
-    TResult Function()? success,
-    TResult Function()? canceled,
-    TResult Function(Object error)? error,
+    TResult? Function()? redirected,
+    TResult? Function()? success,
+    TResult? Function()? canceled,
+    TResult? Function(Object error)? error,
   }) {
     return success?.call();
   }
@@ -329,10 +326,10 @@ class _$_Success implements _Success {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Redirect value)? redirected,
-    TResult Function(_Success value)? success,
-    TResult Function(_Canceled value)? canceled,
-    TResult Function(_Error value)? error,
+    TResult? Function(_Redirect value)? redirected,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Canceled value)? canceled,
+    TResult? Function(_Error value)? error,
   }) {
     return success?.call(this);
   }
@@ -354,7 +351,9 @@ class _$_Success implements _Success {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SuccessToJson(this);
+    return _$$_SuccessToJson(
+      this,
+    );
   }
 }
 
@@ -373,14 +372,11 @@ abstract class _$$_CanceledCopyWith<$Res> {
 
 /// @nodoc
 class __$$_CanceledCopyWithImpl<$Res>
-    extends _$CheckoutResponseCopyWithImpl<$Res>
+    extends _$CheckoutResponseCopyWithImpl<$Res, _$_Canceled>
     implements _$$_CanceledCopyWith<$Res> {
   __$$_CanceledCopyWithImpl(
       _$_Canceled _value, $Res Function(_$_Canceled) _then)
-      : super(_value, (v) => _then(v as _$_Canceled));
-
-  @override
-  _$_Canceled get _value => super._value as _$_Canceled;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -423,10 +419,10 @@ class _$_Canceled implements _Canceled {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? redirected,
-    TResult Function()? success,
-    TResult Function()? canceled,
-    TResult Function(Object error)? error,
+    TResult? Function()? redirected,
+    TResult? Function()? success,
+    TResult? Function()? canceled,
+    TResult? Function(Object error)? error,
   }) {
     return canceled?.call();
   }
@@ -460,10 +456,10 @@ class _$_Canceled implements _Canceled {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Redirect value)? redirected,
-    TResult Function(_Success value)? success,
-    TResult Function(_Canceled value)? canceled,
-    TResult Function(_Error value)? error,
+    TResult? Function(_Redirect value)? redirected,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Canceled value)? canceled,
+    TResult? Function(_Error value)? error,
   }) {
     return canceled?.call(this);
   }
@@ -485,7 +481,9 @@ class _$_Canceled implements _Canceled {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CanceledToJson(this);
+    return _$$_CanceledToJson(
+      this,
+    );
   }
 }
 
@@ -499,27 +497,24 @@ abstract class _Canceled implements CheckoutResponse {
 abstract class _$$_ErrorCopyWith<$Res> {
   factory _$$_ErrorCopyWith(_$_Error value, $Res Function(_$_Error) then) =
       __$$_ErrorCopyWithImpl<$Res>;
+  @useResult
   $Res call({Object error});
 }
 
 /// @nodoc
-class __$$_ErrorCopyWithImpl<$Res> extends _$CheckoutResponseCopyWithImpl<$Res>
+class __$$_ErrorCopyWithImpl<$Res>
+    extends _$CheckoutResponseCopyWithImpl<$Res, _$_Error>
     implements _$$_ErrorCopyWith<$Res> {
   __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
-      : super(_value, (v) => _then(v as _$_Error));
+      : super(_value, _then);
 
-  @override
-  _$_Error get _value => super._value as _$_Error;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
     return _then(_$_Error(
-      error: error == freezed
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as Object,
+      error: null == error ? _value.error : error,
     ));
   }
 }
@@ -559,6 +554,7 @@ class _$_Error implements _Error {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ErrorCopyWith<_$_Error> get copyWith =>
       __$$_ErrorCopyWithImpl<_$_Error>(this, _$identity);
 
@@ -576,10 +572,10 @@ class _$_Error implements _Error {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? redirected,
-    TResult Function()? success,
-    TResult Function()? canceled,
-    TResult Function(Object error)? error,
+    TResult? Function()? redirected,
+    TResult? Function()? success,
+    TResult? Function()? canceled,
+    TResult? Function(Object error)? error,
   }) {
     return error?.call(this.error);
   }
@@ -613,10 +609,10 @@ class _$_Error implements _Error {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Redirect value)? redirected,
-    TResult Function(_Success value)? success,
-    TResult Function(_Canceled value)? canceled,
-    TResult Function(_Error value)? error,
+    TResult? Function(_Redirect value)? redirected,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Canceled value)? canceled,
+    TResult? Function(_Error value)? error,
   }) {
     return error?.call(this);
   }
@@ -638,7 +634,9 @@ class _$_Error implements _Error {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ErrorToJson(this);
+    return _$$_ErrorToJson(
+      this,
+    );
   }
 }
 
@@ -647,7 +645,7 @@ abstract class _Error implements CheckoutResponse {
 
   factory _Error.fromJson(Map<String, dynamic> json) = _$_Error.fromJson;
 
-  Object get error => throw _privateConstructorUsedError;
+  Object get error;
   @JsonKey(ignore: true)
   _$$_ErrorCopyWith<_$_Error> get copyWith =>
       throw _privateConstructorUsedError;

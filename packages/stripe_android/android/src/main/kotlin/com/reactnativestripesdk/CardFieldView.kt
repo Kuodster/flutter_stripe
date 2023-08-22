@@ -7,6 +7,7 @@ import android.text.Editable
 import android.text.InputFilter
 import android.text.TextWatcher
 import android.util.Log
+import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.core.os.LocaleListCompat
 import com.facebook.react.bridge.ReadableMap
@@ -47,6 +48,9 @@ class CardFieldView(context: ThemedReactContext) : FrameLayout(context) {
     cardInputWidgetBinding.container.isFocusableInTouchMode = true
     cardInputWidgetBinding.container.requestFocus()
 
+    if( mCardWidget.parent != null ) {
+      (mCardWidget.parent as ViewGroup).removeView(mCardWidget)
+    }
     addView(mCardWidget)
     setListeners()
 

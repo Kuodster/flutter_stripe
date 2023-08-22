@@ -48,10 +48,14 @@ class CardFieldView(context: ThemedReactContext) : FrameLayout(context) {
     cardInputWidgetBinding.container.isFocusableInTouchMode = true
     cardInputWidgetBinding.container.requestFocus()
 
+    Log.d("CustomTag", "Before addView is called")
     if( mCardWidget.parent != null ) {
-      (mCardWidget.parent as ViewGroup).removeView(mCardWidget)
+      Log.d("CustomTag", "View has parent")
     }
+    (mCardWidget.parent as? ViewGroup)?.removeView(mCardWidget)
     addView(mCardWidget)
+    Log.d("CustomTag", "After addView is called")
+
     setListeners()
 
     viewTreeObserver.addOnGlobalLayoutListener { requestLayout() }

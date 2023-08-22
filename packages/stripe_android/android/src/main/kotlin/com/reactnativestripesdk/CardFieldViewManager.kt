@@ -1,7 +1,5 @@
 package com.reactnativestripesdk
 
-import android.util.Log
-import android.view.ViewGroup
 import com.facebook.react.bridge.ReadableArray
 import com.facebook.react.bridge.ReadableMap
 import com.facebook.react.common.MapBuilder
@@ -68,16 +66,6 @@ class CardFieldViewManager : SimpleViewManager<CardFieldView>() {
 
   override fun createViewInstance(reactContext: ThemedReactContext): CardFieldView {
     val stripeSdkModule: StripeSdkModule? = reactContext.getNativeModule(StripeSdkModule::class.java)
-
-    if( stripeSdkModule?.cardFieldView != null) {
-      Log.d("CustomTag", "Before addView is called")
-      val tempView = stripeSdkModule.cardFieldView as CardFieldView
-      if( tempView.mCardWidget.parent != null ) {
-        Log.d("CustomTag", "View has parent")
-      }
-      (tempView.mCardWidget.parent as? ViewGroup)?.removeView(tempView.mCardWidget)
-    }
-
     val view = CardFieldView(reactContext)
 
     reactContextRef = reactContext

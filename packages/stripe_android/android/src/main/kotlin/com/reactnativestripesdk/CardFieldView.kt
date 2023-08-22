@@ -53,7 +53,7 @@ class CardFieldView(context: ThemedReactContext) : FrameLayout(context) {
       Log.d("CustomTag", "View has parent")
     }
     (mCardWidget.parent as? ViewGroup)?.removeView(mCardWidget)
-    addView(mCardWidget)
+    //addView(mCardWidget)
     Log.d("CustomTag", "After addView is called")
 
     setListeners()
